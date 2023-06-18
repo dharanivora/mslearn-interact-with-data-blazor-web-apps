@@ -1,6 +1,25 @@
 @page "/"
 
-<h1>Blazing Pizzas</h1>
+<div class="main">
+    <h1>Blazing Pizzas!</h1>
+
+    <ul class="pizza-cards">
+        @if (pizzaSpecials != null && pizzaSpecials.Any())
+        {
+            @foreach (var pizzaSpecial in pizzaSpecials)
+            {
+                <li style="background-image: url('@pizzaSpecial.ImageUrl')">
+                    <div class="pizza-info">
+                        <span class="title">@pizzaSpecial.Name</span>
+                        @pizzaSpecial.Description
+                        <span class="price">@pizzaSpecial.GetFormattedBasePrice()</span>
+                    </div>
+                </li>
+            }
+        }
+    </ul>
+</div>
+
 
 @code {
     List<PizzaSpecial> pizzaSpecials = new();
@@ -11,7 +30,7 @@
             {
                 Name = "Veggie Garden", 
                 BasePrice = 26.89M, 
-                Description = "This pizza is a delight of all colorful veggies which makes you feel like you are wondering in a vegetable garden of your own home!"
+                Description = "This pizza is a delight of all colorful veggies which makes you feel like you are wondering in a vegetable garden of your own home!",
                 ImageUrl = "img/pizzas/salad.jpg"
             },
             new() 
@@ -23,7 +42,7 @@
             },
             new() 
             {
-                Name = "Margharita",
+                Name = "Margherita",
                 BasePrice = 19.99M,
                 Description = "A heaven of taste filled with fresh tomatoes and home grown basil!",
                 ImageUrl = "img/pizzas/margherita.jpg"
@@ -33,15 +52,36 @@
                 Name = "Pesto",
                 BasePrice = 21.49M,
                 Description = "Made with fresh home gron basil fused with garlic and olive oil imported fromm Italy!",
-                ImageUrl = "img/pizza/pesto.jpg"
+                ImageUrl = "img/pizzas/pesto.jpg"
             },
             new() 
             {
                 Name = "Rice Veggie",
                 BasePrice = 24.79M,
                 Description = "Filled with fresh vegetables on pizza base made with rice and pesto!",
-                ImageUrl = "img/pizza/rice.jpg"
+                ImageUrl = "img/pizzas/rice.jpg"
             },
+            new() 
+            {
+                Name = "Hawaiian Veggie",
+                BasePrice = 29.99M,
+                Description = "Get the flavors of Hawaiian pizza with garden fresh vegetables!",
+                ImageUrl = "img/pizzas/hawaiian.jpg"
+            },
+            new()
+            {
+                Name = "Pineapple Veggie",
+                BasePrice = 26.69M,
+                Description = "Enjoy the fused flavors of fresh garden vegetables with fresh extra juicy pineapple!",
+                ImageUrl = "img/pizzas/pineapple-veggie.jpg"
+            },
+            new()
+            {
+                Name = "Vegan",
+                BasePrice = 29.19M,
+                Description = "Enjoy this vegan pizza with fresh flavors of vegetables spreaded on cauliflower crust!",
+                ImageUrl = "img/pizzas/vegan.jpg"
+            }
         });
 };
 		
