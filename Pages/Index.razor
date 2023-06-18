@@ -1,4 +1,47 @@
 @page "/"
 
 <h1>Blazing Pizzas</h1>
+
+@code {
+    List<PizzaSpecial> pizzaSpecials = new();
+
+    protected override void OnInitialized() => pizzaSpecials.AddRange(new List<PizzaSpecial>()
+        {
+            new() 
+            {
+                Name = "Veggie Garden", 
+                BasePrice = 26.89M, 
+                Description = "This pizza is a delight of all colorful veggies which makes you feel like you are wondering in a vegetable garden of your own home!"
+                ImageUrl = "img/pizzas/salad.jpg"
+            },
+            new() 
+            {
+                Name = "Four Cheese",
+                BasePrice = 15.99M,
+                Description = "Pizza filled with mouth elting cheeses of four varieties!",
+                ImageUrl = "img/pizzas/cheese.jpg"
+            },
+            new() 
+            {
+                Name = "Margharita",
+                BasePrice = 19.99M,
+                Description = "A heaven of taste filled with fresh tomatoes and home grown basil!",
+                ImageUrl = "img/pizzas/margherita.jpg"
+            },
+            new() 
+            {
+                Name = "Pesto",
+                BasePrice = 21.49M,
+                Description = "Made with fresh home gron basil fused with garlic and olive oil imported fromm Italy!",
+                ImageUrl = "img/pizza/pesto.jpg"
+            },
+            new() 
+            {
+                Name = "Rice Veggie",
+                BasePrice = 24.79M,
+                Description = "Filled with fresh vegetables on pizza base made with rice and pesto!",
+                ImageUrl = "img/pizza/rice.jpg"
+            },
+        });
+};
 		
